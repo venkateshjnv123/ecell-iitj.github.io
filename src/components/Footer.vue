@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-column" style="margin-top:3%">
+  <div class="flex-column" style="margin-top:0%">
     <div class="row indigo" style="margin:0">
       <v-card class="indigo white--text col-md-12 mar" flat tile fluid>
         <v-card-title class="justify-center">
@@ -77,7 +77,7 @@
               class="mdi mdi-heart red--text"
               style="padding:3px"
             ></span
-            >by E-cell WebD Team
+            >by E-Cell WebD Team
           </h6>
         </div>
       </v-card>
