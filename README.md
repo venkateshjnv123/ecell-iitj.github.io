@@ -1,6 +1,6 @@
-<a href="https://devlup-labs.github.io"><img src="https://img.shields.io/badge/Developed%20under-Winter%20of%20Code%2C%20DevlUp%20Labs-blue"/></a>
-
 # ecell-iitj.github.io
+
+<a href="https://devlup-labs.github.io"><img src="https://img.shields.io/badge/Developed%20under-Winter%20of%20Code%2C%20DevlUp%20Labs-blue"/></a>
 
 Website for Entrepreneurship Cell, IIT Jodhpur
 
