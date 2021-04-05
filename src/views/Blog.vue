@@ -4,7 +4,8 @@ div(align='center', justify='center')
         Preloader
   div(v-else)
     v-container
-      v-row.mt-9
+      v-layout(wrap, row)
+      v-row.mt-9(align='stretch')
         v-flex.mb-6(v-for='blog in blogs', :key='blog.name', xs12='',sm12='', md6='',lg4='',xl4='')
           BlogCard(:blog='blog')
       v-btn(color='#1b65c4' dark='' large href="https://medium.com/devlup-labs") More Posts
