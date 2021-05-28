@@ -22,7 +22,7 @@ export default {
     fetchProjects() {
       this.loading = true;
       fetch(
-        "https://spreadsheets.google.com/feeds/list/1gEG08lGpzhtVYzmjyOuYF5qlTFAWhvR2FeAuQlIlIuY/o4eja9x/public/values?alt=json"
+        "https://spreadsheets.google.com/feeds/list/1PJoBY085s4N6MNqQ3t0utZtwL8k8EtCMN1VVrwa8nBU/omtjtxx/public/values?alt=json"
       )
         .then(e =>
           e.json().then(e => {
