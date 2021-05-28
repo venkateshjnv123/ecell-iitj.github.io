@@ -12,7 +12,7 @@ v-row(justify='left')
               h4.mt-1.mb-n2 {{ Profile.gsx$name.$t }}
               v-row.justify-center
                 v-col
-                  h6 {{ Profile.gsx$currentdesignation.$t }} | {{Profile.gsx$devlupdesignation.$t }}
+                  h6 {{ Profile.gsx$currentdesignation.$t }} | {{Profile.gsx$ecelldesignation.$t }}
                         
       v-expand-transition
         v-card(:height="getheight" v-if='active' class="transition-fast-in-fast-out v-card--reveal" :width="getProfileWidth" justify-content='center')
@@ -22,8 +22,8 @@ v-row(justify='left')
               h4.mt-1.mb-n2 {{ Profile.gsx$name.$t }}
               v-row.justify-center
                 v-col
-                  h6 {{ Profile.gsx$currentdesignation.$t }} | {{Profile.gsx$devlupdesignation.$t }}
-            v-row.px-4.justify-center.align-center
+                  h6 {{ Profile.gsx$currentdesignation.$t }} | {{Profile.gsx$ecelldesignation.$t }}
+            v-row.justify-center.align-center
               v-col(cols="12")  {{ Profile.gsx$info.$t }}
             v-row(class='bottom' align-items='center')
               v-btn(color='red',:href="Profile.gsx$linkemail.$t",target='_blank',v-if='Profile.gsx$linkemail.$t' icon small)
@@ -43,16 +43,16 @@ export default {
   props: ["Profile"],
   data: () => ({
     pageNo: 1,
-    active : false,
-    getProfileWidth: '230',
-    getheight: '280'
+    active: false,
+    getProfileWidth: "230",
+    getheight: "280"
   }),
-  methods:{
-    myfunction : function(){
-      this.active=true ;
+  methods: {
+    myfunction: function() {
+      this.active = true;
     },
-    myfunction2 : function(){
-      this.active=false ; 
+    myfunction2: function() {
+      this.active = false;
     }
   }
 };
@@ -70,5 +70,3 @@ export default {
   left: 30%;
 }
 </style>
-
-
