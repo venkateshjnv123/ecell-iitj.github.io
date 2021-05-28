@@ -1,14 +1,12 @@
 <template lang="pug">
 v-row(justify='left')
   v-col
-    v-card.elevation-5(:width="getProfileWidth" :height='getheight' v-on:mouseover='myfunction' v-on:mouseleave='myfunction2')
-      v-card.px-3(:width="getProfileWidth" flat :height='getheight')
+    v-card.elevation-4(:width="getProfileWidth" :height='getheight' v-on:mouseover='myfunction' v-on:mouseleave='myfunction2')
+      v-card(:width="getProfileWidth"  :height='getheight')
         v-row 
-          v-col(cols="12" style="background-color:#fff") 
+          v-col(cols="12") 
             v-avatar(:size="(11/15)*getProfileWidth")
-                img(:src="Profile.gsx$src.$t" contain )
-                  
-                      
+                img(:src="Profile.gsx$src.$t" contain )           
           v-col.pa-2(cols="12")  
             div
               h4.mt-1.mb-n2 {{ Profile.gsx$name.$t }}
@@ -18,16 +16,16 @@ v-row(justify='left')
                         
       v-expand-transition
         v-card(:height="getheight" v-if='active' class="transition-fast-in-fast-out v-card--reveal" :width="getProfileWidth" justify-content='center')
-          v-row(align='center' justify='center')
+          v-row(vertical-align='center' justify='center')
           div()
             v-col.pa-2(cols="12" align-items='center')  
               h4.mt-1.mb-n2 {{ Profile.gsx$name.$t }}
               v-row.justify-center
                 v-col
                   h6 {{ Profile.gsx$currentdesignation.$t }} | {{Profile.gsx$devlupdesignation.$t }}
-            v-row.justify-center.align-center
+            v-row.px-4.justify-center.align-center
               v-col(cols="12")  {{ Profile.gsx$info.$t }}
-            v-row.justify-center.align-center
+            v-row(class='bottom' align-items='center')
               v-btn(color='red',:href="Profile.gsx$linkemail.$t",target='_blank',v-if='Profile.gsx$linkemail.$t' icon small)
                 v-icon(color='red') mdi-email
               v-btn(color='black',:href="Profile.gsx$linkgithub.$t",target='_blank',v-if='Profile.gsx$linkgithub.$t' icon small)
@@ -65,6 +63,11 @@ export default {
   opacity: 1 !important;
   position: absolute;
   width: 100%;
+}
+.bottom{
+  bottom: 6px;
+  position: absolute;
+  left: 30%;
 }
 </style>
 
