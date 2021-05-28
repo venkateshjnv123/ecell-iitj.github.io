@@ -14,7 +14,7 @@ v-row(justify='left')
               h4.mt-1.mb-n2 {{ Profile.gsx$name.$t }}
               v-row.justify-center
                 v-col
-                  h6 {{ Profile.gsx$currentdesignation.$t }} | {{Profile.gsx$devlupdesignation.$t }}
+                  h6 {{ Profile.gsx$currentdesignation.$t }} | {{Profile.gsx$ecelldesignation.$t }}
                         
       v-expand-transition
         v-card(:height="getheight" v-if='active' class="transition-fast-in-fast-out v-card--reveal" :width="getProfileWidth" justify-content='center')
@@ -24,7 +24,7 @@ v-row(justify='left')
               h4.mt-1.mb-n2 {{ Profile.gsx$name.$t }}
               v-row.justify-center
                 v-col
-                  h6 {{ Profile.gsx$currentdesignation.$t }} | {{Profile.gsx$devlupdesignation.$t }}
+                  h6 {{ Profile.gsx$currentdesignation.$t }} | {{Profile.gsx$ecelldesignation.$t }}
             v-row.justify-center.align-center
               v-col(cols="12")  {{ Profile.gsx$info.$t }}
             v-row.justify-center.align-center
@@ -45,16 +45,16 @@ export default {
   props: ["Profile"],
   data: () => ({
     pageNo: 1,
-    active : false,
-    getProfileWidth: '230',
-    getheight: '280'
+    active: false,
+    getProfileWidth: "230",
+    getheight: "280"
   }),
-  methods:{
-    myfunction : function(){
-      this.active=true ;
+  methods: {
+    myfunction: function() {
+      this.active = true;
     },
-    myfunction2 : function(){
-      this.active=false ; 
+    myfunction2: function() {
+      this.active = false;
     }
   }
 };
@@ -67,5 +67,3 @@ export default {
   width: 100%;
 }
 </style>
-
-
