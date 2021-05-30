@@ -4,7 +4,7 @@
           
             v-app-bar-nav-icon.hidden-md-and-up(@click.stop="drawer = !drawer")
             v-avatar(size="48px")
-                v-img(src="../assets/favicon.png")
+                v-img(src="../assets/logo.jpeg")
             v-toolbar-title.hidden-sm-and-down.white--text
                 span.title.ml-3.mr-5(text style="color:black") E-Cell IITJ&nbsp;
             v-spacer
