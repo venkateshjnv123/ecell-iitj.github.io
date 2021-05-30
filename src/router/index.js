@@ -45,6 +45,12 @@ const routes = [
     name: "Team",
     component: () => import("../views/Profile"),
     meta: { title: "Team" }
+  },
+  {
+    path: "/collaborations",
+    name: "Collaborations",
+    component: () => import("../views/Collabs"),
+    meta: { title: "Collaborations" }
   }
 ];
 

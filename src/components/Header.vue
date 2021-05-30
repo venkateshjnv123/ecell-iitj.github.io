@@ -6,7 +6,7 @@
             v-avatar(size="48px")
                 v-img(src="../assets/logo.jpeg")
             v-toolbar-title.hidden-sm-and-down.white--text
-                span.title.ml-3.mr-5(text style="color:black") Devlup Labs&nbsp;
+                span.title.ml-3.mr-5(text style="color:black") E-Cell IITJ&nbsp;
             v-spacer
             div.hidden-sm-and-down
               v-btn.pa-2.ma-1(text v-for="link in links" :key="link.text" :to="{name:link.text}" label exact) {{link.text}} 
@@ -33,7 +33,8 @@ export default {
         { text: "Timeline", icon: "mdi-timeline-text" },
         { text: "Blog", icon: "mdi-forum" },
         { text: "Videos", icon: "mdi-television" },
-        { text: "Team", icon: "mdi-human-male-male" }
+        { text: "Team", icon: "mdi-human-male-male" },
+        { text: "Collaborations", icon: "mdi-arrow-up-bold-box-outline" }
       ]
     };
   }
