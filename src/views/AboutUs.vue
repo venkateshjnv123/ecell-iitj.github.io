@@ -1,18 +1,17 @@
 <template lang="pug">
-v-container(fluid='' style='padding: 0px; width: 100%;')
+v-container(fluid='' style='margin: 0px; padding: 0px; width: 100%;')
   v-layout(row='' wrap='')
     v-container(fluid='' style='margin: 0px; padding: 0px; width: 100%;background-color: #1b65c4;')
       v-row
         v-flex(xs12='',sm12='', md4='',lg4='',xl4='')
           v-img(src='../assets/aboutus_team.png' aspect-ratio='1.7')
         v-flex(xs12='',sm12='', md7='',lg7='',xl7='')    
-          v-container()
-            h2.pa-3.mt-3(style="text-align: center;color:#fff") About Us
-            h5.font-weight-regular.mb-n.pl-12.pr-12.mt-n2(style="text-align: left;color:#fff") {{desc1}}
-            <!-- h3.font-weight-regular.mb-n.pl-12.pr-12.mt-2(style="text-align: left;color:#fff") {{desc2}} -->
-    v-container()
-      <br>
-      h2.pa-3.rounded-lg.text-center(style="text-align: center;color:#000") DEPARTMENTS
+          v-container()  
+            h1.pa-3.mt-3(style="text-align: center;color:#fff") About Us
+            h3.font-weight-regular.mb-n.pl-12.pr-12.mt-n2(style="text-align: left;color:#fff") {{desc1}}
+            h3.font-weight-regular.mb-n.pl-12.pr-12.mt-2(style="text-align: left;color:#fff") {{desc2}}
+    v-container()      
+      h1.pa-3.rounded-lg.text-center(style="text-align: center;color:#000") GUIDING PRINCIPLES
       v-flex(v-for='item in items', :key='item.name',xs12='',sm12='', md12='',lg12='',xl12='')
         div.d-none.d-lg-flex.d-xl-flex.mt-2
         div(v-if="item.direction === 'left'")
@@ -21,8 +20,8 @@ v-container(fluid='' style='padding: 0px; width: 100%;')
               v-img.mt-5.ml-3.mr-n3(:src="item.src" contain aspect-ratio='2.5')
             v-flex(xs12='',sm12='', md8='',lg8='',xl8='')    
                 v-container()  
-                  h2.font-weight-medium.pa-3(style="text-align: center;color:#000") {{item.heading}}
-                  h4.font-weight-light.mb-n.pa-3(style="text-align: center;color:#000") {{item.subheading}} 
+                  h1.font-weight-medium.pa-3(style="text-align: center;color:#000") {{item.heading}}
+                  h3.font-weight-light.mb-n.pa-3(style="text-align: center;color:#000") {{item.subheading}}   
         div(v-if="item.direction === 'right'")
           v-layout(v-if='$vuetify.breakpoint.smAndDown')
             v-row
@@ -30,16 +29,35 @@ v-container(fluid='' style='padding: 0px; width: 100%;')
                 v-img.mt-5.ml-n3.mr-3(:src="item.src" contain aspect-ratio='2.5')
               v-flex(xs12='',sm12='', md8='',lg8='',xl8='')    
                 v-container()  
-                  h2.font-weight-medium.pa-3(style="text-align: center;color:#000") {{item.heading}}
-                  h4.font-weight-light.mb-n.pa-3(style="text-align: center;color:#000") {{item.subheading}}
+                  h1.font-weight-medium.pa-3(style="text-align: center;color:#000") {{item.heading}}
+                  h3.font-weight-light.mb-n.pa-3(style="text-align: center;color:#000") {{item.subheading}}          
           v-layout(v-if='$vuetify.breakpoint.mdAndUp')          
             v-row
               v-flex(xs12='',sm12='', md8='',lg8='',xl8='')    
                 v-container()  
-                  h2.font-weight-medium.pa-3(style="text-align: center;color:#000") {{item.heading}}
-                  h4.font-weight-light.mb-n.pa-3(style="text-align: center;color:#000") {{item.subheading}}
+                  h1.font-weight-medium.pa-3(style="text-align: center;color:#000") {{item.heading}}
+                  h3.font-weight-light.mb-n.pa-3(style="text-align: center;color:#000") {{item.subheading}}
               v-flex(xs12='',sm12='', md4='',lg4='',xl4='')
                 v-img.mt-5.ml-n3.mr-3(:src="item.src" contain aspect-ratio='2.5')    
+  div(align='center' justify='center')
+   v-container.col-sm-10(align='center' justify='center')
+    v-row.py-2
+     v-flex.pt-6.px-3(lg5='' justify='center')
+      v-img.img-fluid(src="../assets/contactUs.png")
+     v-flex.px-2.mx-3(justify='center' align='center')
+       div.mt-5.Form()
+            iframe(name='hiddenframe' height='0' width='0' border='0' style='display: none;' onload="if(submitted){location.reload()}")
+            v-form(id="user_info_submit" name="form"
+                  action="https://docs.google.com/forms/d/e/1FAIpQLScF25Ruct7LDlDyG8GBqb5pybTFE_DnfqJOjxzBY38k5-4fLQ/formResponse"
+                  method="POST" target="hiddenframe"
+                  v-model="validform"
+                  v-ref='form' onsubmit="submitted=true;" )
+              h1.py-3.font-weight-bold(style='color:#1b65c4;') Contact Us
+                v-text-field(label="Email: "  prepend-icon='mdi-email' id="E-mail"   name="entry.251653149" color='#1b65c4' type="email" v-model="emailaddress" :rules="emailrules")
+                v-text-field(label="Full name: " prepend-icon='mdi-account' id="Name" name="entry.1947078806" color='#1b65c4' type="text" counter=20 v-model="Name" :rules="namerules")
+                v-text-field(label="Contact Number: "  prepend-icon=" mdi-dialpad"  color='#1b65c4' id="Mobile" name="entry.1279789724" type="phone"   counter=true v-model="mobileno" :rules="numberrules")
+                v-text-field(label="Comments and queries" color='#1b65c4' name="entry.1361975626" type="Comments" id="suggestion" counter=true)
+                v-btn.my-3(color='#1b65c4' :disabled="!validform" type="submit").white--text submit
 
 </template>
 <script>
@@ -47,37 +65,77 @@ export default {
   name: "Project",
   data: () => ({
     desc1:
-      "Entrepreneurship Cell IIT Jodhpur is a student body that focuses on developing and promoting entrepreneurial eco-system and start-up skills in creative and potential minds. It focuses on various dimensions of the corporate world that revolves around an entrepreneur. Being a student-run body, we educate people about different aspects of a business, guide and promote entrepreneurial ideas and provide resources to help them establish, nurture and run their own startup.",
+      "DevlUp Labs is a thriving student-led open source community at IIT Jodhpur.We believe in sharing of ideas and upskilling by collaboration through meaningful projects. Our focus is to deliver results with the highest of standards.We aim to build an open source community through proper guidance and by encouraging self learning.",
+    desc2:
+      "We encourage development of technology and Innovation through various sessions, workshops and webinars.",
     item: 1,
     items: [
       {
         direction: "right",
-        heading: "Corporate, Startups and Marketing",
-        src: "../../data/images/AboutusPoints/csm.jpeg",
+        heading: "Learning Driven Endeavour",
+        src: "../data/images/AboutusPoints/point1new.png",
         subheading:
           "Everything we do is to upskill ourselves! We aim to learn and grow as a team!"
       },
       {
         direction: "left",
-        heading: "Events",
-        src: "../../data/images/AboutusPoints/events.jpg",
+        heading: "Open Source community",
+        src: "../data/images/AboutusPoints/point2new.png",
         subheading:
           "Inspire and guide the coming generation to build a functioning and interactive open-source community."
       },
       {
         direction: "right",
-        heading: "Finance and Management",
-        src: "../../data/images/AboutusPoints/finance.jpeg",
+        heading: "Projects that matter",
+        src: "../data/images/AboutusPoints/point3new.png",
         subheading:
           "We at devlup labs are committed to products and projects that matter, projects that serve a real purpose for the community."
       },
       {
         direction: "left",
-        heading: "Media and Publicity",
-        src: "../../data/images/AboutusPoints/media.jpg",
+        heading: "Unparalleled Standards",
+        src: "../data/images/AboutusPoints/point4new.png",
         subheading:
           "We insist on the highest of standards, from functionality to code to coffee."
+      },
+      {
+        direction: "right",
+        heading: "Delivering Results",
+        src: "../data/images/AboutusPoints/point5new.png",
+        subheading:
+          "Nothing is more important than delivering amazing results to the end-user."
+      },
+      {
+        direction: "left",
+        heading: "Don’t Reinvent the wheel",
+        src: "../data/images/AboutusPoints/point6new.png",
+        subheading:
+          "We believe that we can deliver better results and enrich the learning experience by leveraging existing solutions and building on top of them."
+      },
+      {
+        direction: "right",
+        heading: "Self Learning",
+        src: "../data/images/AboutusPoints/point7new.png",
+        subheading:
+          "Self Learning sits at the heart of devlup labs, we believe in proper utilization of resources and peer guidance to propel self learning."
       }
+    ],
+    validform: false,
+    submitted: false,
+    Name: "",
+    namerules: [
+      v => !!v || "name should not be emptty",
+      v => (v && v.length <= 20) || "name should be less than 20"
+    ],
+    emailaddress: "",
+    emailrules: [
+      v => !!v || "email is required",
+      v => /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/.test(v) || "E-mail must be valid"
+    ],
+    mobileno: "",
+    numberrules: [
+      v => !!v || "Mobile number is required",
+      v => /^[0-9]{10}/.test(v) || "Mobile number must be valid"
     ]
   })
 };
