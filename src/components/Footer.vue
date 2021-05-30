@@ -11,6 +11,7 @@
               ><v-icon size="25px">{{ icon.name }}</v-icon></a
             >
           </v-btn>
+          <v-btn class="text-center" to="./about" text="primary" justify='center' color='white' @click="viewForm" > Contact Us</v-btn>
         </v-card-title>
         <div class="col-md-5 fl indigo ">
           <p class="head">
@@ -132,10 +133,11 @@
 </style>
 <script>
 export default {
-  data: () => ({
-    icons: [
+  data() {
+    return {
+      icons: [
       {
-        name: "mdi-gmail",
+        name: "mdi-gmail" ,
         url: "mailto:ecell@iitj.ac.in"
       },
       {
@@ -151,7 +153,21 @@ export default {
         name: "mdi-instagram",
         url: "https://www.instagram.com/ecell_iitj/"
       }
-    ]
-  })
+    ],
+      clicked: false
+    };
+  },
+     methods: {
+    scrollForm: function() {
+      if (this.clicked) {
+        window.scrollTo(0, document.body.scrollHeight - 100);
+        this.clicked = false;
+      }
+    },
+    viewForm: function() {
+      this.clicked = true;
+      this.scrollForm();
+    }
+  }
 };
 </script>
